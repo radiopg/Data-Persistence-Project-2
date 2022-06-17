@@ -21,10 +21,6 @@ public class sceneChanger : MonoBehaviour
         
     }
 
-
-    public string playersName;
-
-
     public void ViewHighScores()
     {
         SceneManager.LoadScene(1);
@@ -48,6 +44,4 @@ public class sceneChanger : MonoBehaviour
             Application.Quit(); // original code to quit Unity player
         #endif
     }
-
-
 }
