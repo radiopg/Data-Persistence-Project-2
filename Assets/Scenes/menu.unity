@@ -443,7 +443,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playername: 
   scor_e: 0
-  nameofplayer: {fileID: 1685415094}
+  nameofplayer: {fileID: 0}
 --- !u!1 &685918734
 GameObject:
   m_ObjectHideFlags: 0
@@ -1695,7 +1695,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Enter name...
+  m_text: Enter name + space...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

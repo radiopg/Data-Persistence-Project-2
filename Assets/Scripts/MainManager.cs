@@ -65,6 +65,8 @@ public class MainManager : MonoBehaviour
                 SceneManager.LoadScene(0);
             }
         }
+
+        SetScore();
     }
 
     void AddPoint(int point)
@@ -77,5 +79,10 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+    }
+
+    public void SetScore()
+    {
+        dataPersistenceScript.Instance.score = m_Points;
     }
 }
