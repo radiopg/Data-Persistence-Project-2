@@ -79,25 +79,10 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
-
-        dataPersistenceScript.Instance.score = m_Points;
-        if (m_Points > dataPersistenceScript.Instance.p5HighScore)
-        {
-            
-            dataPersistenceScript.Instance.p5HighScore = m_Points;
-            dataPersistenceScript.Instance.highScoreP5Name = dataPersistenceScript.Instance.nameofplayerToRetain;
-            dataPersistenceScript.Instance.SaveHighestNameAndScore();
-        }
-        
     }
 
     public void SetScore()
     {
-        if(m_Points > dataPersistenceScript.Instance.scoreHighest)
-        {
-            dataPersistenceScript.Instance.scoreHighest = m_Points;
-            dataPersistenceScript.Instance.nameofplayerHighest = dataPersistenceScript.Instance.nameofplayerToRetain;
-        }
-        
+        dataPersistenceScript.Instance.score = m_Points;
     }
 }
