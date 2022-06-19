@@ -26,6 +26,11 @@ public class sceneChanger : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void ClearLeaderBoard()
+    {
+        dataPersistenceScript.Instance.DeleteJsonFile();
+    }
+
     public void ReturnToMenu()
     {
         SceneManager.LoadScene(0);

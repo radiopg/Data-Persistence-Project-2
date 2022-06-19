@@ -19,7 +19,7 @@ public class changeCurrentHighScoreText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        nameandscore.text = "Best Score: " + dataPersistenceScript.Instance.nameofplayerToRetain + ": " + dataPersistenceScript.Instance.score;
+        nameandscore.text = "Best Score: " + dataPersistenceScript.Instance.nameofplayerHighest + ": " + dataPersistenceScript.Instance.scoreHighest;
     }
 
 

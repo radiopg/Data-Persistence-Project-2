@@ -29,6 +29,7 @@ public class MenuUIHandler : MonoBehaviour
     public void SetName()
     {
         dataPersistenceScript.Instance.nameofplayerToRetain = nameofplayer.text;
+        
     }
 
     public void SetScore()
