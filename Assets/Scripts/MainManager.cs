@@ -6,6 +6,10 @@ using UnityEngine.UI;
 
 public class MainManager : MonoBehaviour
 {
+    //added by  me
+    public mainUIHandler otherScript;
+    //end added by me
+
     public Brick BrickPrefab;
     public int LineCount = 6;
     public Rigidbody Ball;
@@ -22,6 +26,10 @@ public class MainManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        //added by  me
+        otherScript = GameObject.Find("MainUIHandlerObject").GetComponent<mainUIHandler>();
+        //end added by me
+
         const float step = 0.6f;
         int perLine = Mathf.FloorToInt(4.0f / step);
         
@@ -66,7 +74,16 @@ public class MainManager : MonoBehaviour
             }
         }
 
-        SetScore();
+        //code added by me
+        dataPersistenceScript.Instance.currentscore = m_Points;
+        
+        if(m_Points > dataPersistenceScript.Instance.highestscore)
+        {
+            otherScript.SetHighestScoreWithName();
+            otherScript.ChangeHighScoreText();
+        }
+        //end of code added by me
+        
     }
 
     void AddPoint(int point)
@@ -79,10 +96,12 @@ public class MainManager : MonoBehaviour
     {
         m_GameOver = true;
         GameOverText.SetActive(true);
+
+        //code added by me
+        dataPersistenceScript.Instance.Save();
+        dataPersistenceScript.Instance.LoadSaveData();
+        //end of code added by me
     }
 
-    public void SetScore()
-    {
-        dataPersistenceScript.Instance.score = m_Points;
-    }
+
 }

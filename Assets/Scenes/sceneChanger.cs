@@ -31,6 +31,11 @@ public class sceneChanger : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
+    public void ClearHighScores()
+    {
+        dataPersistenceScript.Instance.DeleteJsonFile();
+    }
+
     public void StartGame()
     {
         SceneManager.LoadScene(2);

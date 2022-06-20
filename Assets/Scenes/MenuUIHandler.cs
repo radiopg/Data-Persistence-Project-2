@@ -1,21 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
-public class MenuUIHandler : MonoBehaviour
+public class menuUIHandler : MonoBehaviour
 {
 
-    public string playername;
-    public int scor_e;
+    public TextMeshProUGUI input;
 
-    public TextMeshProUGUI nameofplayer;
 
     // Start is called before the first frame update
     void Start()
     {
-        nameofplayer = GameObject.Find("PlayerNameText").GetComponent<TextMeshProUGUI>();
+        
     }
 
     // Update is called once per frame
@@ -24,15 +21,14 @@ public class MenuUIHandler : MonoBehaviour
         
     }
 
-    
-
-    public void SetName()
+    public void SetCurrentPlayerName()
     {
-        dataPersistenceScript.Instance.nameofplayerToRetain = nameofplayer.text;
+        dataPersistenceScript.Instance.nameofcurrentplayer = input.text;
     }
 
-    public void SetScore()
+    //maybe remove this later
+    public void KeepNameInTextInput()
     {
-        dataPersistenceScript.Instance.score = scor_e;
+        input.text = dataPersistenceScript.Instance.nameofcurrentplayer;
     }
 }
