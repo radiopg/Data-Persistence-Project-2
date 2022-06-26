@@ -65,22 +65,26 @@ public class MainManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                dataPersistenceScript.Instance.currentscore = 0;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+                dataPersistenceScript.Instance.nameofcurrentplayer = "";
+                dataPersistenceScript.Instance.currentscore = 0;
                 SceneManager.LoadScene(0);
             }
         }
 
         //code added by me
         dataPersistenceScript.Instance.currentscore = m_Points;
-        
+        otherScript.ChangeHighScoreText();
+
         if(m_Points > dataPersistenceScript.Instance.highestscore)
         {
             otherScript.SetHighestScoreWithName();
-            otherScript.ChangeHighScoreText();
+            //otherScript.ChangeHighScoreText();
         }
         //end of code added by me
         

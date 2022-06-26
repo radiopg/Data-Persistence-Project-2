@@ -28,12 +28,16 @@ public class sceneChanger : MonoBehaviour
 
     public void ReturnToMenu()
     {
+        dataPersistenceScript.Instance.nameofcurrentplayer = "";
+        dataPersistenceScript.Instance.currentscore = 0;
         SceneManager.LoadScene(0);
     }
 
     public void ClearHighScores()
     {
         dataPersistenceScript.Instance.DeleteJsonFile();
+        dataPersistenceScript.Instance.highestscorename = "";
+        dataPersistenceScript.Instance.highestscore = 0;
     }
 
     public void StartGame()

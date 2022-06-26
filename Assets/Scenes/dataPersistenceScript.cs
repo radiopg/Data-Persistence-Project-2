@@ -25,6 +25,8 @@ public class dataPersistenceScript : MonoBehaviour
     public string highestscorename;
     public int highestscore;
 
+
+
     private void Awake()
     {
         if(Instance != null)
