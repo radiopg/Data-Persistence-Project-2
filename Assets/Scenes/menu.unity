@@ -922,6 +922,23 @@ MonoBehaviour:
   currentscore: 0
   highestscorename: 
   highestscore: 0
+  leaderboardP1name: 
+  leaderboardP2name: 
+  leaderboardP3name: 
+  leaderboardP4name: 
+  leaderboardP5name: 
+  leaderboardP1score: 0
+  leaderboardP2score: 0
+  leaderboardP3score: 0
+  leaderboardP4score: 0
+  leaderboardP5score: 0
+  leaderboardP1thruP5ScoreArray: 0000000000000000000000000000000000000000
+  leaderboardP1thruP5NameArray:
+  - 
+  - 
+  - 
+  - 
+  - 
 --- !u!4 &828913486
 Transform:
   m_ObjectHideFlags: 0
@@ -1357,8 +1374,8 @@ Camera:
   m_GameObject: {fileID: 1144931393}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

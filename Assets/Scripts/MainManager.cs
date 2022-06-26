@@ -8,6 +8,7 @@ public class MainManager : MonoBehaviour
 {
     //added by  me
     public mainUIHandler otherScript;
+    public bool sortdone = false;
     //end added by me
 
     public Brick BrickPrefab;
@@ -63,14 +64,23 @@ public class MainManager : MonoBehaviour
         }
         else if (m_GameOver)
         {
+            if ((dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[0] < m_Points) && !sortdone)
+            {
+                dataPersistenceScript.Instance.leaderboardP1thruP5NameArray[0] = dataPersistenceScript.Instance.nameofcurrentplayer;
+                dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[0] = dataPersistenceScript.Instance.currentscore;
+                SortLeaderBoard();
+            }
+
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                sortdone = false;
                 dataPersistenceScript.Instance.currentscore = 0;
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             }
 
             if (Input.GetKeyDown(KeyCode.Escape))
             {
+
                 dataPersistenceScript.Instance.nameofcurrentplayer = "";
                 dataPersistenceScript.Instance.currentscore = 0;
                 SceneManager.LoadScene(0);
@@ -84,7 +94,7 @@ public class MainManager : MonoBehaviour
         if(m_Points > dataPersistenceScript.Instance.highestscore)
         {
             otherScript.SetHighestScoreWithName();
-            //otherScript.ChangeHighScoreText();
+            
         }
         //end of code added by me
         
@@ -102,9 +112,46 @@ public class MainManager : MonoBehaviour
         GameOverText.SetActive(true);
 
         //code added by me
+        
         dataPersistenceScript.Instance.Save();
         dataPersistenceScript.Instance.LoadSaveData();
         //end of code added by me
+    }
+
+    public void SortLeaderBoard()
+    {
+        int temp;
+        string temp2;
+        for (int j = 0; j < dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray.Length; j++)
+        {
+            for (int i = 0; i < dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray.Length - 1; i++)
+            {
+                if (dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[i] > dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[i + 1])
+                {
+                    temp = dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[i + 1];
+                    dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[i + 1] = dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[i];
+                    dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[i] = temp;
+
+                    temp2 = dataPersistenceScript.Instance.leaderboardP1thruP5NameArray[i + 1];
+                    dataPersistenceScript.Instance.leaderboardP1thruP5NameArray[i + 1] = dataPersistenceScript.Instance.leaderboardP1thruP5NameArray[i];
+                    dataPersistenceScript.Instance.leaderboardP1thruP5NameArray[i] = temp2;
+                }
+            }
+        }
+
+        dataPersistenceScript.Instance.leaderboardP1name = dataPersistenceScript.Instance.leaderboardP1thruP5NameArray[4];
+        dataPersistenceScript.Instance.leaderboardP2name = dataPersistenceScript.Instance.leaderboardP1thruP5NameArray[3];
+        dataPersistenceScript.Instance.leaderboardP3name = dataPersistenceScript.Instance.leaderboardP1thruP5NameArray[2];
+        dataPersistenceScript.Instance.leaderboardP4name = dataPersistenceScript.Instance.leaderboardP1thruP5NameArray[1];
+        dataPersistenceScript.Instance.leaderboardP5name = dataPersistenceScript.Instance.leaderboardP1thruP5NameArray[0];
+
+        dataPersistenceScript.Instance.leaderboardP1score = dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[4];
+        dataPersistenceScript.Instance.leaderboardP2score = dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[3];
+        dataPersistenceScript.Instance.leaderboardP3score = dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[2];
+        dataPersistenceScript.Instance.leaderboardP4score = dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[1];
+        dataPersistenceScript.Instance.leaderboardP5score = dataPersistenceScript.Instance.leaderboardP1thruP5ScoreArray[0];
+
+        sortdone = true;
     }
 
 
