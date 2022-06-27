@@ -90,7 +90,7 @@ public class MainManager : MonoBehaviour
         //code added by me
         dataPersistenceScript.Instance.currentscore = m_Points;
         otherScript.ChangeHighScoreText();
-
+        dataPersistenceScript.Instance.Save();
         if(m_Points > dataPersistenceScript.Instance.highestscore)
         {
             otherScript.SetHighestScoreWithName();

@@ -35,6 +35,17 @@ public class sceneChanger : MonoBehaviour
 
     public void ClearHighScores()
     {
+        dataPersistenceScript.Instance.leaderboardP1name = "";
+        dataPersistenceScript.Instance.leaderboardP1score = 0;
+        dataPersistenceScript.Instance.leaderboardP2name = "";
+        dataPersistenceScript.Instance.leaderboardP2score = 0;
+        dataPersistenceScript.Instance.leaderboardP3name = "";
+        dataPersistenceScript.Instance.leaderboardP3score = 0;
+        dataPersistenceScript.Instance.leaderboardP4name = "";
+        dataPersistenceScript.Instance.leaderboardP4score = 0;
+        dataPersistenceScript.Instance.leaderboardP5name = "";
+        dataPersistenceScript.Instance.leaderboardP5score = 0;
+
         dataPersistenceScript.Instance.DeleteJsonFile();
         dataPersistenceScript.Instance.highestscorename = "";
         dataPersistenceScript.Instance.highestscore = 0;
